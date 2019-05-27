@@ -1,6 +1,6 @@
 import board
-import adafruit_bd3491fs
 import busio
+import adafruit_bd3491fs
 i2c = busio.I2C(board.SCL, board.SDA)
 bd3491fs = adafruit_bd3491fs.BD3491FS(i2c)
 
