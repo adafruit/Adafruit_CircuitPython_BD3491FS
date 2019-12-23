@@ -9,8 +9,8 @@ Introduction
     :target: https://discord.gg/nBQh6qu
     :alt: Discord
 
-.. image:: https://travis-ci.com/adafruit/Adafruit_CircuitPython_BD3491FS.svg?branch=master
-    :target: https://travis-ci.com/adafruit/Adafruit_CircuitPython_BD3491FS
+.. image:: https://github.com/adafruit/Adafruit_CircuitPython_BD3491FS/workflows/Build%20CI/badge.svg
+    :target: https://github.com/adafruit/Adafruit_CircuitPython_BD3491FS/actions/
     :alt: Build Status
 
 CircuitPython library for the Rohm BD3491FS Audio Processor
