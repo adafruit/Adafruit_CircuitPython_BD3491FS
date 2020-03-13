@@ -53,17 +53,18 @@ import adafruit_bus_device.i2c_device as i2cdevice
 from adafruit_register.i2c_struct import UnaryStruct
 
 # pylint: disable=bad-whitespace
-_INPUT_SELECTOR	 = const(0x04)
-_INPUT_GAIN      = const(0x06)
+_INPUT_SELECTOR = const(0x04)
+_INPUT_GAIN = const(0x06)
 _VOLUME_GAIN_CH1 = const(0x21)
 _VOLUME_GAIN_CH2 = const(0x22)
-_BASS_GAIN       = const(0x51)
-_TREBLE_GAIN     = const(0x57)
-_SURROUND_GAIN   = const(0x78)
-_SYSTEM_RESET    = const(0xFE)
+_BASS_GAIN = const(0x51)
+_TREBLE_GAIN = const(0x57)
+_SURROUND_GAIN = const(0x78)
+_SYSTEM_RESET = const(0xFE)
 # pylint: enable=bad-whitespace
 
-class Input: # pylint: disable=too-few-public-methods,invalid-name
+
+class Input:  # pylint: disable=too-few-public-methods,invalid-name
     """Options for ``active_input``
 
         +-----------------+------------------+
@@ -87,6 +88,7 @@ class Input: # pylint: disable=too-few-public-methods,invalid-name
         +-----------------+------------------+
 
     """
+
     A = const(0x00)
     B = const(0x01)
     C = const(0x02)
@@ -95,7 +97,9 @@ class Input: # pylint: disable=too-few-public-methods,invalid-name
     F = const(0x06)
     SHORT = const(0x05)
     MUTE = const(0x07)
-class Level: # pylint: disable=too-few-public-methods
+
+
+class Level:  # pylint: disable=too-few-public-methods
     """Options for ``imput_gain``
 
         +----------------------+-------+
@@ -123,6 +127,7 @@ class Level: # pylint: disable=too-few-public-methods
         +----------------------+-------+
 
     """
+
     LEVEL_0DB = const(0x00)
     LEVEL_2DB = const(0x01)
     LEVEL_4DB = const(0x02)
@@ -135,7 +140,7 @@ class Level: # pylint: disable=too-few-public-methods
     LEVEL_20DB = const(0x0A)
 
 
-class BD3491FS: # pylint: disable=too-many-instance-attributes
+class BD3491FS:  # pylint: disable=too-many-instance-attributes
     """Driver for the Rohm BD3491FS audio processor
 
         :param ~busio.I2C i2c_bus: The I2C bus the BD3491FS is connected to.
@@ -149,12 +154,11 @@ class BD3491FS: # pylint: disable=too-many-instance-attributes
 
     def __init__(self, i2c_bus):
         self.i2c_device = i2cdevice.I2CDevice(i2c_bus, 0x41)
-        self._current_active_input = 7 # mute
-        self._current_input_gain = 0 # 0dB
-        self._current_ch1_attenuation = 255 # muted
-        self._current_ch2_attenuation = 255 # muted
+        self._current_active_input = 7  # mute
+        self._current_input_gain = 0  # 0dB
+        self._current_ch1_attenuation = 255  # muted
+        self._current_ch2_attenuation = 255  # muted
         self.reset()
-
 
     def reset(self):
         """Reset the sensor, muting the input, reducting input gain to 0dB, and the output channnel
@@ -205,7 +209,7 @@ class BD3491FS: # pylint: disable=too-many-instance-attributes
 
     @channel_1_attenuation.setter
     def channel_1_attenuation(self, value):
-        if ((value < 0) or ((value > 87) and (value != 255))):
+        if (value < 0) or ((value > 87) and (value != 255)):
             raise ValueError("channel 1 attenuation must be from 0-87db")
         self._ch1_attenuation = value
         self._current_ch1_attenuation = value
@@ -222,7 +226,7 @@ class BD3491FS: # pylint: disable=too-many-instance-attributes
 
     @channel_2_attenuation.setter
     def channel_2_attenuation(self, value):
-        if ((value < 0) or ((value > 87) and (value != 255))):
+        if (value < 0) or ((value > 87) and (value != 255)):
             raise ValueError("channel 2 attenuation must be from 0-87db")
         self._ch2_attenuation = value
         self._current_ch2_attenuation = value
