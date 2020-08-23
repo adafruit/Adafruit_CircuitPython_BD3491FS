@@ -52,7 +52,6 @@ from micropython import const
 import adafruit_bus_device.i2c_device as i2cdevice
 from adafruit_register.i2c_struct import UnaryStruct
 
-# pylint: disable=bad-whitespace
 _INPUT_SELECTOR = const(0x04)
 _INPUT_GAIN = const(0x06)
 _VOLUME_GAIN_CH1 = const(0x21)
@@ -61,7 +60,6 @@ _BASS_GAIN = const(0x51)
 _TREBLE_GAIN = const(0x57)
 _SURROUND_GAIN = const(0x78)
 _SYSTEM_RESET = const(0xFE)
-# pylint: enable=bad-whitespace
 
 
 class Input:  # pylint: disable=too-few-public-methods,invalid-name
