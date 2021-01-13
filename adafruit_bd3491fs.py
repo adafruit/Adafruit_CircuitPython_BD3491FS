@@ -1,24 +1,7 @@
-# The MIT License (MIT)
+# SPDX-FileCopyrightText: 2019 Bryan Siepert for Adafruit Industries
 #
-# Copyright (c) 2019 Bryan Siepert for Adafruit Industries
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-# THE SOFTWARE.
+# SPDX-License-Identifier: MIT
+
 """
 `adafruit_bd3491fs`
 ================================================================================
@@ -65,25 +48,25 @@ _SYSTEM_RESET = const(0xFE)
 class Input:  # pylint: disable=too-few-public-methods,invalid-name
     """Options for ``active_input``
 
-        +-----------------+------------------+
-        | ``Input``       | Input Pair       |
-        +=================+==================+
-        | ``Input.A``     | Inputs A1 and A2 |
-        +-----------------+------------------+
-        | ``Input.B``     | Inputs B1 and B2 |
-        +-----------------+------------------+
-        | ``Input.C``     | Inputs C1 and C2 |
-        +-----------------+------------------+
-        | ``Input.D``     | Inputs D1 and D2 |
-        +-----------------+------------------+
-        | ``Input.E``     | Inputs E1 and E2 |
-        +-----------------+------------------+
-        | ``Input.F``     | Inputs F1 and F2 |
-        +-----------------+------------------+
-        | ``Input.SHORT`` | Short inputs     |
-        +-----------------+------------------+
-        | ``Input.MUTE``  | Mute all         |
-        +-----------------+------------------+
+    +-----------------+------------------+
+    | ``Input``       | Input Pair       |
+    +=================+==================+
+    | ``Input.A``     | Inputs A1 and A2 |
+    +-----------------+------------------+
+    | ``Input.B``     | Inputs B1 and B2 |
+    +-----------------+------------------+
+    | ``Input.C``     | Inputs C1 and C2 |
+    +-----------------+------------------+
+    | ``Input.D``     | Inputs D1 and D2 |
+    +-----------------+------------------+
+    | ``Input.E``     | Inputs E1 and E2 |
+    +-----------------+------------------+
+    | ``Input.F``     | Inputs F1 and F2 |
+    +-----------------+------------------+
+    | ``Input.SHORT`` | Short inputs     |
+    +-----------------+------------------+
+    | ``Input.MUTE``  | Mute all         |
+    +-----------------+------------------+
 
     """
 
@@ -100,29 +83,29 @@ class Input:  # pylint: disable=too-few-public-methods,invalid-name
 class Level:  # pylint: disable=too-few-public-methods
     """Options for ``imput_gain``
 
-        +----------------------+-------+
-        | ``Level``            | Value |
-        +======================+=======+
-        | ``Level.LEVEL_0DB``  | 0dB   |
-        +----------------------+-------+
-        | ``Level.LEVEL_2DB``  | 2dB   |
-        +----------------------+-------+
-        | ``Level.LEVEL_4DB``  | 4dB   |
-        +----------------------+-------+
-        | ``Level.LEVEL_6DB``  | 6dB   |
-        +----------------------+-------+
-        | ``Level.LEVEL_8DB``  | 8dB   |
-        +----------------------+-------+
-        | ``Level.LEVEL_10DB`` | 10dB  |
-        +----------------------+-------+
-        | ``Level.LEVEL_12DB`` | 12dB  |
-        +----------------------+-------+
-        | ``Level.LEVEL_14DB`` | 14dB  |
-        +----------------------+-------+
-        | ``Level.LEVEL_16DB`` | 16dB  |
-        +----------------------+-------+
-        | ``Level.LEVEL_20DB`` | 20dB  |
-        +----------------------+-------+
+    +----------------------+-------+
+    | ``Level``            | Value |
+    +======================+=======+
+    | ``Level.LEVEL_0DB``  | 0dB   |
+    +----------------------+-------+
+    | ``Level.LEVEL_2DB``  | 2dB   |
+    +----------------------+-------+
+    | ``Level.LEVEL_4DB``  | 4dB   |
+    +----------------------+-------+
+    | ``Level.LEVEL_6DB``  | 6dB   |
+    +----------------------+-------+
+    | ``Level.LEVEL_8DB``  | 8dB   |
+    +----------------------+-------+
+    | ``Level.LEVEL_10DB`` | 10dB  |
+    +----------------------+-------+
+    | ``Level.LEVEL_12DB`` | 12dB  |
+    +----------------------+-------+
+    | ``Level.LEVEL_14DB`` | 14dB  |
+    +----------------------+-------+
+    | ``Level.LEVEL_16DB`` | 16dB  |
+    +----------------------+-------+
+    | ``Level.LEVEL_20DB`` | 20dB  |
+    +----------------------+-------+
 
     """
 
@@ -141,7 +124,7 @@ class Level:  # pylint: disable=too-few-public-methods
 class BD3491FS:  # pylint: disable=too-many-instance-attributes
     """Driver for the Rohm BD3491FS audio processor
 
-        :param ~busio.I2C i2c_bus: The I2C bus the BD3491FS is connected to.
+    :param ~busio.I2C i2c_bus: The I2C bus the BD3491FS is connected to.
     """
 
     _input_selector = UnaryStruct(_INPUT_SELECTOR, "<B")
