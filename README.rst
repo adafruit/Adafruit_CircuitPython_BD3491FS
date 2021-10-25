@@ -69,6 +69,11 @@ Usage Example
     bd3491fs.channel_1_attenuation = 0
     bd3491fs.channel_2_attenuation = 0
 
+Documentation
+=============
+
+API documentation for this library can be found on `Read the Docs <https://circuitpython.readthedocs.io/projects/bd3491fs/en/latest/>`_.
+
 Contributing
 ============
 
