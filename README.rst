@@ -2,7 +2,7 @@ Introduction
 ============
 
 .. image:: https://readthedocs.org/projects/adafruit-circuitpython-bd3491fs/badge/?version=latest
-    :target: https://circuitpython.readthedocs.io/projects/bd3491fs/en/latest/
+    :target: https://docs.circuitpython.org/projects/bd3491fs/en/latest/
     :alt: Documentation Status
 
 .. image:: https://img.shields.io/discord/327254708534116352.svg
@@ -72,7 +72,7 @@ Usage Example
 Documentation
 =============
 
-API documentation for this library can be found on `Read the Docs <https://circuitpython.readthedocs.io/projects/bd3491fs/en/latest/>`_.
+API documentation for this library can be found on `Read the Docs <https://docs.circuitpython.org/projects/bd3491fs/en/latest/>`_.
 
 Contributing
 ============
