@@ -151,8 +151,11 @@ class BD3491FS:  # pylint: disable=too-many-instance-attributes
         """The currently selected input. Must be an ``Input``
 
         This example sets A1 and A2 to the active input pair.
+
         .. code-block:: python
-        bd3491fs.active_input = adafruit_bd3491fs.Input.A
+
+            bd3491fs.active_input = adafruit_bd3491fs.Input.A
+
         """
         return self._current_active_input
 
@@ -163,10 +166,14 @@ class BD3491FS:  # pylint: disable=too-many-instance-attributes
 
     @property
     def input_gain(self):
-        """The gain applied to all inputs equally"
+        """The gain applied to all inputs equally
+
         This example sets the input gain to 10dB.
+
         .. code-block:: python
-        bd3491fs.input_gain = adafruit_bd3491fs.Level.10_DB""
+
+            bd3491fs.input_gain = adafruit_bd3491fs.Level.10_DB
+
         """
         return self._current_input_gain
 
@@ -181,10 +188,14 @@ class BD3491FS:  # pylint: disable=too-many-instance-attributes
     @property
     def channel_1_attenuation(self):
         """The attenuation applied to channel 1 of the currently selected input pair in -dB.
-        Maximum is -87dB. To mute set to 255
+        Maximum is -87dB. To mute set to 255.
+
         This example sets the attenuation for input channel 1 to -10dB.
+
         .. code-block:: python
-        bd3491fs.channel_1_attenuation = 10""
+
+            bd3491fs.channel_1_attenuation = 10
+
         """
         return self._current_ch1_attenuation
 
@@ -198,10 +209,14 @@ class BD3491FS:  # pylint: disable=too-many-instance-attributes
     @property
     def channel_2_attenuation(self):
         """The attenuation applied to channel 2 of the currently selected input pair in -dB.
-        Maximum is -87dB. To mute set to 255
+        Maximum is -87dB. To mute set to 255.
+
         This example sets the attenuation for input channel 2 to -10dB.
+
         .. code-block:: python
-        bd3491fs.channel_2_attenuation = 10""
+
+            bd3491fs.channel_2_attenuation = 10
+
         """
         return self._current_ch2_attenuation
 
