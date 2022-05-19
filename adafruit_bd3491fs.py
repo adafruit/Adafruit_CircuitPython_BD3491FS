@@ -35,6 +35,12 @@ from micropython import const
 import adafruit_bus_device.i2c_device as i2cdevice
 from adafruit_register.i2c_struct import UnaryStruct
 
+try:
+    import typing  # pylint: disable=unused-import
+    from busio import I2C
+except ImportError:
+    pass
+
 _INPUT_SELECTOR = const(0x04)
 _INPUT_GAIN = const(0x06)
 _VOLUME_GAIN_CH1 = const(0x21)
@@ -133,7 +139,7 @@ class BD3491FS:  # pylint: disable=too-many-instance-attributes
     _ch2_attenuation = UnaryStruct(_VOLUME_GAIN_CH2, "<B")
     _system_reset = UnaryStruct(_SYSTEM_RESET, "<B")
 
-    def __init__(self, i2c_bus):
+    def __init__(self, i2c_bus: I2C) -> None:
         self.i2c_device = i2cdevice.I2CDevice(i2c_bus, 0x41)
         self._current_active_input = 7  # mute
         self._current_input_gain = 0  # 0dB
@@ -141,13 +147,13 @@ class BD3491FS:  # pylint: disable=too-many-instance-attributes
         self._current_ch2_attenuation = 255  # muted
         self.reset()
 
-    def reset(self):
+    def reset(self) -> None:
         """Reset the sensor, muting the input, reducting input gain to 0dB, and the output channnel
         attenuation to maximum"""
         self._reset = 0x81
 
     @property
-    def active_input(self):
+    def active_input(self) -> int:
         """The currently selected input. Must be an ``Input``
 
         This example sets A1 and A2 to the active input pair.
@@ -160,12 +166,12 @@ class BD3491FS:  # pylint: disable=too-many-instance-attributes
         return self._current_active_input
 
     @active_input.setter
-    def active_input(self, value):
+    def active_input(self, value: int) -> None:
         self._input_selector = value
         self._current_active_input = value
 
     @property
-    def input_gain(self):
+    def input_gain(self) -> int:
         """The gain applied to all inputs equally
 
         This example sets the input gain to 10dB.
@@ -178,7 +184,7 @@ class BD3491FS:  # pylint: disable=too-many-instance-attributes
         return self._current_input_gain
 
     @input_gain.setter
-    def input_gain(self, value):
+    def input_gain(self, value: int) -> None:
         allowed_gains = [0, 1, 2, 3, 4, 6, 8, 10]
         if not value in allowed_gains:
             raise ValueError("input gain must be one of 0, 2, 4, 6, 8, 12, 16, 20 dB")
@@ -186,7 +192,7 @@ class BD3491FS:  # pylint: disable=too-many-instance-attributes
         self._current_input_gain = value
 
     @property
-    def channel_1_attenuation(self):
+    def channel_1_attenuation(self) -> int:
         """The attenuation applied to channel 1 of the currently selected input pair in -dB.
         Maximum is -87dB. To mute set to 255.
 
@@ -200,14 +206,14 @@ class BD3491FS:  # pylint: disable=too-many-instance-attributes
         return self._current_ch1_attenuation
 
     @channel_1_attenuation.setter
-    def channel_1_attenuation(self, value):
+    def channel_1_attenuation(self, value: int) -> None:
         if (value < 0) or ((value > 87) and (value != 255)):
             raise ValueError("channel 1 attenuation must be from 0-87db")
         self._ch1_attenuation = value
         self._current_ch1_attenuation = value
 
     @property
-    def channel_2_attenuation(self):
+    def channel_2_attenuation(self) -> int:
         """The attenuation applied to channel 2 of the currently selected input pair in -dB.
         Maximum is -87dB. To mute set to 255.
 
@@ -221,7 +227,7 @@ class BD3491FS:  # pylint: disable=too-many-instance-attributes
         return self._current_ch2_attenuation
 
     @channel_2_attenuation.setter
-    def channel_2_attenuation(self, value):
+    def channel_2_attenuation(self, value: int) -> None:
         if (value < 0) or ((value > 87) and (value != 255)):
             raise ValueError("channel 2 attenuation must be from 0-87db")
         self._ch2_attenuation = value
