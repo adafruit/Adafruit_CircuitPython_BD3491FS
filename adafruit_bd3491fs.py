@@ -31,12 +31,13 @@ Implementation Notes
 __version__ = "0.0.0+auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_BD3491FS.git"
 
-from micropython import const
 import adafruit_bus_device.i2c_device as i2cdevice
 from adafruit_register.i2c_struct import UnaryStruct
+from micropython import const
 
 try:
-    import typing  # pylint: disable=unused-import
+    import typing
+
     from busio import I2C
 except ImportError:
     pass
@@ -51,7 +52,7 @@ _SURROUND_GAIN = const(0x78)
 _SYSTEM_RESET = const(0xFE)
 
 
-class Input:  # pylint: disable=too-few-public-methods,invalid-name
+class Input:
     """Options for ``active_input``
 
     +-----------------+------------------+
@@ -86,7 +87,7 @@ class Input:  # pylint: disable=too-few-public-methods,invalid-name
     MUTE = const(0x07)
 
 
-class Level:  # pylint: disable=too-few-public-methods
+class Level:
     """Options for ``imput_gain``
 
     +----------------------+-------+
@@ -127,7 +128,7 @@ class Level:  # pylint: disable=too-few-public-methods
     LEVEL_20DB = const(0x0A)
 
 
-class BD3491FS:  # pylint: disable=too-many-instance-attributes
+class BD3491FS:
     """Driver for the Rohm BD3491FS audio processor
 
     :param ~busio.I2C i2c_bus: The I2C bus the BD3491FS is connected to.
